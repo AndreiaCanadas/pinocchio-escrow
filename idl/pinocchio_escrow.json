@@ -1,0 +1,310 @@
+{
+  "version": "0.1.0",
+  "name": "pinocchio_escrow",
+  "instructions": [
+    {
+      "name": "MAKE",
+      "accounts": [
+        {
+          "name": "maker",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The user that creates the escrow"
+          ]
+        },
+        {
+          "name": "mintA",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The mint that the maker gives in exchange"
+          ]
+        },
+        {
+          "name": "mintB",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The mint that the maker wants to receive"
+          ]
+        },
+        {
+          "name": "makerAta",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The maker ATA of the `mint_a`"
+          ]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The ATA owned by the escrow program to hold the maker `mint_a` until the exchange completes"
+          ]
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The escrow state account that will be created (PDA derived from seeds and maker pubkey)"
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The system program for account creation"
+          ]
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The token program for token managing"
+          ]
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The associated token program for ATA creation"
+          ]
+        }
+      ],
+      "args": [],
+      "discriminant": {
+        "type": "u8",
+        "value": 0
+      }
+    },
+    {
+      "name": "TAKE",
+      "accounts": [
+        {
+          "name": "taker",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The taker that takes the escrow"
+          ]
+        },
+        {
+          "name": "maker",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The maker that created the escrow"
+          ]
+        },
+        {
+          "name": "mintA",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The mint that the taker will get from the maker"
+          ]
+        },
+        {
+          "name": "mintB",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The mint that the taker will give to the maker"
+          ]
+        },
+        {
+          "name": "takerAtaA",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The taker ATA of the mint_a"
+          ]
+        },
+        {
+          "name": "takerAtaB",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The taker ATA of the mint_b"
+          ]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The ATA owned by the escrow program that is holding the `mint_a`"
+          ]
+        },
+        {
+          "name": "makerAtaB",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The maker ATA of the `mint_b` to receive from the taker"
+          ]
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The escrow state account"
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The system program for account creation"
+          ]
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The token program for token managing"
+          ]
+        }
+      ],
+      "args": [],
+      "discriminant": {
+        "type": "u8",
+        "value": 1
+      }
+    },
+    {
+      "name": "REFUND",
+      "accounts": [
+        {
+          "name": "maker",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The maker that created the escrow"
+          ]
+        },
+        {
+          "name": "mintA",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The mint that the taker will get from the maker"
+          ]
+        },
+        {
+          "name": "mintB",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The mint that the taker will give to the maker"
+          ]
+        },
+        {
+          "name": "makerAta",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The maker ATA of the `mint_a`"
+          ]
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The ATA owned by the escrow program that is holding the `mint_a`"
+          ]
+        },
+        {
+          "name": "escrow",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The escrow state account"
+          ]
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The system program for account creation"
+          ]
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false,
+          "docs": [
+            "The token program for token managing"
+          ]
+        }
+      ],
+      "args": [],
+      "discriminant": {
+        "type": "u8",
+        "value": 2
+      }
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Escrow",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mintB",
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
+          },
+          {
+            "name": "amountB",
+            "type": {
+              "array": [
+                "u8",
+                8
+              ]
+            }
+          },
+          {
+            "name": "seed",
+            "type": {
+              "array": [
+                "u8",
+                1
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": {
+              "array": [
+                "u8",
+                1
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "origin": "shank",
+    "address": "4ibrEMW5F6hKnkW4jVedswYv6H6VtwPN6ar6dvXDN1nT"
+  }
+}

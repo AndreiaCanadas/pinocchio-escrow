@@ -15,14 +15,14 @@ use crate::state::Escrow;
 /// 1.
 /// 
 /// ## Accounts Expected:
-/// 1. [signer] maker - The maker that created the escrow
-/// 2. [] mint_a - The mint that the taker will get from the maker
-/// 3. [] mint_b - The mint that the taker will give to the maker
-/// 4. [writable] maker_ata - The maker ATA of the `mint_a`
-/// 5. [writable] vault - The ATA owned by the escrow program that is holding the `mint_a`
-/// 6. [writable] escrow - The escrow state account
-/// 7. [] system_program - The system program for account creation
-/// 8. [] token_program - The token program for token managing
+/// 0. [signer] maker - The maker that created the escrow
+/// 1. [] mint_a - The mint that the taker will get from the maker
+/// 2. [] mint_b - The mint that the taker will give to the maker
+/// 3. [writable] maker_ata - The maker ATA of the `mint_a`
+/// 4. [writable] vault - The ATA owned by the escrow program that is holding the `mint_a`
+/// 5. [writable] escrow - The escrow state account
+/// 6. [] system_program - The system program for account creation
+/// 7. [] token_program - The token program for token managing
 /// 
 pub fn refund (accounts: &[AccountView], _instruction_data: &[u8]) -> ProgramResult {
 

@@ -15,17 +15,17 @@ use crate::state::Escrow;
 /// 1.
 /// 
 /// ## Accounts Expected:
-/// 1. [signer] taker - The taker that takes the escrow
-/// 2. [] maker - The maker that created the escrow
-/// 3. [] mint_a - The mint that the taker will get from the maker
-/// 4. [] mint_b - The mint that the taker will give to the maker
-/// 5. [writable] taker_ata_a - The taker ATA of the mint_a
-/// 6. [writable] taker_ata_b - The taker ATA of the mint_b
-/// 7. [writable] vault - The ATA owned by the escrow program that is holding the `mint_a`
-/// 8. [writable] maker_ata_b - The maker ATA of the `mint_b` to receive from the taker
-/// 9. [writable] escrow - The escrow state account
-/// 10. [] system_program - The system program for account creation
-/// 11. [] token_program - The token program for token managing
+/// 0. [signer] taker - The taker that takes the escrow
+/// 1. [] maker - The maker that created the escrow
+/// 2. [] mint_a - The mint that the taker will get from the maker
+/// 3. [] mint_b - The mint that the taker will give to the maker
+/// 4. [writable] taker_ata_a - The taker ATA of the mint_a
+/// 5. [writable] taker_ata_b - The taker ATA of the mint_b
+/// 6. [writable] vault - The ATA owned by the escrow program that is holding the `mint_a`
+/// 7. [writable] maker_ata_b - The maker ATA of the `mint_b` to receive from the taker
+/// 8. [writable] escrow - The escrow state account
+/// 9. [] system_program - The system program for account creation
+/// 10. [] token_program - The token program for token managing
 /// 
 pub fn take (accounts: &[AccountView], _instruction_data: &[u8]) -> ProgramResult {
 

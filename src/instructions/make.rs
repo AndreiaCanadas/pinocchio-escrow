@@ -16,21 +16,21 @@ use crate::state::Escrow;
 /// 1.
 /// 
 /// ## Accounts Expected:
-/// 1. [signer] maker - The user that creates the escrow
-/// 2. [] mint_a - The mint that the maker gives in exchange
-/// 3. [] mint_b - The mint that the maker wants to receive
-/// 4. [writable] maker_ata - The maker ATA of the `mint_a`
-/// 5. [writable] vault - The ATA owned by the escrow program to hold the maker `mint_a` until the exchange completes
-/// 6. [writable] escrow - The escrow state account that will be created (PDA derived from seeds and maker pubkey)
-/// 7. [] system_program - The system program for account creation
-/// 8. [] token_program - The token program for token managing
-/// 9. [] associated_token_program - The associated token program for ATA creation
+/// 0. [signer] maker - The user that creates the escrow
+/// 1. [] mint_a - The mint that the maker gives in exchange
+/// 2. [] mint_b - The mint that the maker wants to receive
+/// 3. [writable] maker_ata - The maker ATA of the `mint_a`
+/// 4. [writable] vault - The ATA owned by the escrow program to hold the maker `mint_a` until the exchange completes
+/// 5. [writable] escrow - The escrow state account that will be created (PDA derived from seeds and maker pubkey)
+/// 6. [] system_program - The system program for account creation
+/// 7. [] token_program - The token program for token managing
+/// 8. [] associated_token_program - The associated token program for ATA creation
 /// 
 /// ## Data Parameters:
-/// 1. [u8; 8] amount_a - The amount of mint_a that the maker gives for the exchange (u64)
-/// 2. [u8; 8] amount_b - The amount of mint_b that the maker wants to receive in the exchange (u64)
-/// 3. [u8; 1] seed - The seed to derive the escrow PDA (u8)
-/// 4. [u8; 1] escrow_bump - The bump of the escrow account
+/// 0. [u8; 8] amount_a - The amount of mint_a that the maker gives for the exchange (u64)
+/// 1. [u8; 8] amount_b - The amount of mint_b that the maker wants to receive in the exchange (u64)
+/// 2. [u8; 1] seed - The seed to derive the escrow PDA (u8)
+/// 3. [u8; 1] escrow_bump - The bump of the escrow account
 pub fn make(accounts: &[AccountView], instruction_data: &[u8]) -> ProgramResult {
     
     // Unpack accounts - Validate expected accounts

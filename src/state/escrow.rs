@@ -1,7 +1,8 @@
 use pinocchio::{AccountView};
+use shank::ShankAccount;
 
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq, ShankAccount)]
 pub struct Escrow {
     pub mint_b: [u8; 32],
     pub amount_b: [u8; 8],
