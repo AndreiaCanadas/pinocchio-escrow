@@ -1,6 +1,6 @@
 # Pinocchio Escrow
 ---
-This is a Solana smart-contract implementing a trustless token swap (escrow), built with Pinocchio library.
+This is a Solana smart-contract implementing a trustless token swap (escrow), built with Pinocchio library. The IDL is generated using Shank macros.
 
 ## What is it?
 The Pinocchio Escrow is a Solana program that allows two parties to exchange SPL tokens trustlessly. A `maker` initiates the deal by depositing a given amount of `token_a` into a vault and specifying how much `token_b` they want in return. Any `taker` can then fulfil the deal atomically. If no taker steps in, the maker can cancel at any time and reclaim their tokens.
@@ -75,6 +75,11 @@ Allows the maker to create an escrow and deposit `mint_a` tokens.
 - `vault` and `escrow` must not be initialized (owned by the system program)
 - `amount_a` and `amount_b` must be greater than 0
 - Escrow PDA must match the address derived from the provided seeds
+
+**Flow:**
+1. Create and initialize the escrow state account
+2. Create the vault ATA with the escrow PDA as authority
+3. Transfer `amount_a` of `mint_a` from the maker's ATA to the vault
 
 ---
 
