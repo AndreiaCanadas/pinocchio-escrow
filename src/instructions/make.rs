@@ -13,7 +13,11 @@ use crate::state::Escrow;
 /// This function allows an user to create an escrow
 /// 
 /// ## Business Logic:
-/// 1.
+/// 1. Validate all accounts and instruction data
+/// 2. Derive and verify the escrow PDA from the provided seeds
+/// 3. Create the escrow state account
+/// 4. Create the vault ATA with the escrow PDA as authority
+/// 5. Transfer amount_a of mint_a from the maker's ATA to the vault
 /// 
 /// ## Accounts Expected:
 /// 0. [signer] maker - The user that creates the escrow

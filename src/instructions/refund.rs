@@ -12,7 +12,11 @@ use crate::state::Escrow;
 /// This function allows the maker to cancel the escrow deal he created
 /// 
 /// ## Business Logic:
-/// 1.
+/// 1. Validate all accounts and verify the escrow PDA from the seeds stored in the escrow account
+/// 2. Verify mint_b matches the one stored in the escrow account
+/// 3. Transfer all mint_a from the vault back to the maker (signed by the escrow PDA)
+/// 4. Close the vault ATA and return rent to the maker
+/// 5. Close the escrow account and return rent to the maker
 /// 
 /// ## Accounts Expected:
 /// 0. [signer] maker - The maker that created the escrow

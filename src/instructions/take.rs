@@ -12,7 +12,12 @@ use crate::state::Escrow;
 /// This function allows a user (taker) to accept the escrow deal created by a maker
 /// 
 /// ## Business Logic:
-/// 1.
+/// 1. Validate all accounts and verify the escrow PDA from the seeds stored in the escrow account
+/// 2. Verify mint_b matches the one stored in the escrow account
+/// 3. Transfer amount_b of mint_b from the taker to the maker
+/// 4. Transfer all mint_a from the vault to the taker (signed by the escrow PDA)
+/// 5. Close the vault ATA and return rent to the maker
+/// 6. Close the escrow account and return rent to the maker
 /// 
 /// ## Accounts Expected:
 /// 0. [signer] taker - The taker that takes the escrow
